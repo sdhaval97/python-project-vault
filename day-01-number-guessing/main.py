@@ -10,20 +10,26 @@ def play_game():
     print("I'm thinking of a number between 1 and 100.")
     
     while True:
-        try:
-            # Get user input
-            guess = int(input("\nEnter your guess: "))
-            attempts += 1
+        guess = get_valid_guess()
+        attempts += 1
+        
+        if guess < secret_number:
+            print("Too low! Try again.")
+        elif guess > secret_number:
+            print("Too high! Try again.")
+        else:
+            print(f"🎉 Congratulations! You guessed it in {attempts} attempts!")
+            break
             
-            # check the guess
-            if guess < secret_number:
-                print("Too low! Try again.")
-            elif guess > secret_number:
-                print("Too high! Try again.")
+def get_valid_guess():
+    while True:
+        try:
+            guess = int(input("Enter your guess (1-100): "))
+            if 1 <= guess <= 100:
+                return guess
             else:
-                print(f"🎉 Congratulations! You guessed it in {attempts} attempts!")
-                break
-    
+                print("Please enter a number between 1 and 100!")
         except ValueError:
-            print("Please enter a valid number!")
-     
+            print("Enter a valid number!")
+            
+        
