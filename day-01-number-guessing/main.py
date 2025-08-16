@@ -31,5 +31,16 @@ def get_valid_guess():
                 print("Please enter a number between 1 and 100!")
         except ValueError:
             print("Enter a valid number!")
+
+def play_again():
+    while True:
+        choice = input("\nWould you like to play again? (y/n): ").lower()
+        if choice in ['y', 'yes']:
+            return True
+        elif choice in ['n', 'no']:
+            return False
+        else:
+            print("Please enter 'y' for yes or 'n' for no.")
+    
             
         
