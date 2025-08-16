@@ -41,6 +41,17 @@ def play_again():
             return False
         else:
             print("Please enter 'y' for yes or 'n' for no.")
+
+def main():
+    print("=" * 50)
+    print("🎮 NUMBER GUESSING GAME")
+    print("=" * 50)
     
+    while True:
+        play_game()
+        if not play_again():
+            print("\nThanks for playing! 👋")
+            break
             
-        
+if __name__ == "__main__":
+    main()
