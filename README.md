@@ -114,5 +114,5 @@ The challenge aims to:
 ## Progress
 
 - **Start Date**: 17th Aug
-- **Projects Completed**: 0/60
+- **Projects Completed**: 1/60
 - **Current Focus**: Foundation building
