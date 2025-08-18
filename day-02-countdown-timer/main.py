@@ -121,7 +121,36 @@ def countdown_timer(duration):
     
     return True
 
-        
-                
-        
-        
+def main():
+    """Main application controller"""
+    clear_screen()
+    print("⏰ COUNTDOWN TIMER")
+    print("=" * 50)
+    print("Perfect for Pomodoro, cooking, or focus sessions!")
+    
+    while True:
+        try:
+            # Get timer duration
+            duration = show_presets()
+            
+            # Run the countdown
+            completed = countdown_timer(duration)
+            
+            if completed:
+                print("\nTimer completed successfully! ✅")
+            
+            # Ask to run another timer
+            again = input("\nStart another timer? (y/n): ").lower().strip()
+            if again not in ['y', 'yes']:
+                print("\nThanks for using Countdown Timer! 👋")
+                break
+            
+        except KeyboardInterrupt:
+            print("\n\nGoodbye! 👋")
+            break
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            continue
+
+if __name__ == "__main__":
+    main()
