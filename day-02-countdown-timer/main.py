@@ -14,4 +14,9 @@ def format_time(seconds):
         remaining_seconds = seconds % 60
         return f"{minutes:02d}:{remaining_seconds:02d}"
 
+def clear_screen():
+    """Clear the console screen"""
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
         
