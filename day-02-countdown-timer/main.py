@@ -97,7 +97,31 @@ def show_presets():
         else:
             print("Please enter a number between 1-6")
             
+def countdown_timer(duration):
+    """Main countdown logic"""
+    total_time = duration
+    
+    print(f"\nStarting countdown for {format_time(duration)}")
+    input("Press Enter to Start...")
+    
+    try:
+        for remaining in range(duration, -1, -1):
+            update_display(remaining, total_time)
             
+            if remaining == 0:
+                break
+            
+            time.sleep(1)
+            
+        # Timer finished
+        timer_finished()
+    except KeyboardInterrupt:
+        print("\n\n⏹️  Timer stopped by user")
+        return False
+    
+    return True
+
+        
                 
         
         
