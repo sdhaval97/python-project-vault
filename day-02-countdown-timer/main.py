@@ -50,5 +50,25 @@ def timer_finished():
         time.sleep(0.3)
         print("\a", end="", flush=True)
         time.sleep(0.3)
+
+def get_timer_duration():
+    """Get valid timer duration from user"""
+    while True:
+        try:
+            duration = input("\nEnter countdown time in seconds: ")
+            seconds = int(duration)
+            
+            if seconds <= 0:
+                print("Please enter a positive number!")
+                continue
+            elif seconds > 86400: # 24 hours
+                print("Maximum timer duration is 24 hours (86400 seconds)")
+                continue
+            else:
+                return seconds
+        except ValueError:
+            print("Please enter a valid number!")
+            
+                
         
         
