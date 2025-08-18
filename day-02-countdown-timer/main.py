@@ -36,5 +36,19 @@ def update_display(time_left, total_time):
     
     print("=" * 40)
     print("Press Ctrl+C to stop")
+
+def timer_finished():
+    """Handle timer completion"""
+    clear_screen()
     
+    print("🚨" * 20)
+    print("🚨" + " " * 16 + "TIME'S UP!" + " " * 16 + "🚨")
+    print("🚨" * 20)
+    
+    # Flash effect with beeps
+    for _ in range(5):
+        time.sleep(0.3)
+        print("\a", end="", flush=True)
+        time.sleep(0.3)
+        
         
