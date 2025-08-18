@@ -68,6 +68,35 @@ def get_timer_duration():
                 return seconds
         except ValueError:
             print("Please enter a valid number!")
+
+def show_presets():
+    """Display common timer presets"""
+    presets = {
+        '1': (300, "5 minutes (Pomodoro break)"),
+        '2': (900, "15 minutes (Short break)"),
+        '3': (1500, "25 minutes (Pomodoro session)"),
+        '4': (1800, "30 minutes (Focus session)"),
+        '5': (3600, "1 hour (Deep work)"),
+        '6': (0, "Custom time")
+    }
+    
+    print("\n⏰ Timer Presets:")
+    print("-" * 40)
+    for key, (seconds, description) in presets.items():
+        print(f"{key}. {description}")
+    
+    while True:
+        choice = input("\nSelect preset (1-6): ").strip()
+        if choice in presets:
+            seconds, description = presets[choice]
+            if seconds == 0:
+                return get_timer_duration()
+            else:
+                print(f"Selected: {description}")
+                return seconds
+        else:
+            print("Please enter a number between 1-6")
+            
             
                 
         
