@@ -47,3 +47,75 @@ def display_results(results, num_sides):
     print("RESULTS.".center(25))
     print("="*25)
     
+    # Use ASCII art only for 1 or 2 6 sided dice
+    if num_sides == 6 and len(results) <= 2:
+        display_d6_art(results)
+    else:
+        # for other dice types or 2 or more dice, show numbers
+        for i, roll in enumerate(results):
+            print(f"- Die #{i+1}: {roll}")
+    
+    # Print total if more than one die was rolled
+    if len(results) > 1:
+        print(f"\n Total: {sum(results)}")
+    print("="*25)
+    
+def display_d6_art(results):
+    """Display ASCII art for dice"""
+    dice_faces = {
+        1: ["│    ●    │"], 2: ["│  ●      │", "│      ●  │"],
+        3: ["│  ●      │", "│    ●    │", "│      ●  │"],
+        4: ["│  ●   ●  │", "│         │", "│  ●   ●  │"],
+        5: ["│  ●   ●  │", "│    ●    │", "│  ●   ●  │"],
+        6: ["│  ●   ●  │", "│  ●   ●  │", "│  ●   ●  │"]
+    }
+    
+    for i in range(1, 7):
+        face = dice_faces[i]
+        while len(face) < 3:
+            if len(face) == 1: # Center the single dot for 1 and 3
+                face.insert(0, "│         │")
+                face.append("│         │")
+            else: # Add middle blank for 2 and 4
+                face.insert(1, "│         │")
+                
+    # Prepare lines for printing
+    lines = [""] * 5
+    lines[0] = " ".join(["┌─────────┐"] * len(results))
+    lines[4] = " ".join(["└─────────┘"] * len(results))
+    
+    for i in range(len(results)):
+        roll = results[i]
+        face = dice_faces[roll]
+        lines[1] += f" {face[0]} "
+        lines[2] += f" {face[1]} "
+        lines[3] += f" {face[2]} "
+
+    for line in lines:
+        print(line.strip())
+
+def main():
+    """Main application controller."""
+    while True:
+        clear_screen()
+        print("🎲 Welcome to the Advanced Dice Rolling Simulator! 🎲")
+        print("=" * 50)
+        
+        num_sides, num_dice = get_game_options()
+        
+        results = roll_dice(num_dice, num_sides)
+        display_results(results, num_sides)
+        
+        while True:
+            again = input("\nRoll again? (y/n): ").lower().strip()
+            if again in ['y', 'yes', 'n', 'no']:
+                break
+            else:
+                print("Invalid input. Please enter 'y' or 'n'.")
+        
+        if again in ['n', 'no']:
+            print("\nThanks for playing! 👋")
+            break
+
+if __name__ == "__main__":
+    main()
