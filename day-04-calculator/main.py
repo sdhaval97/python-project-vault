@@ -15,3 +15,9 @@ def subtract(n1, n2):
 def multiply(n1, n2):
     """Returns the product of 2 numbers"""
     return n1 * n2
+
+def divide(n1, n2):
+    """Returns the division of 2 numbers. Handles division by zero"""
+    if n2 == 0:
+        return "Error: Division by zero is not allowed."
+    return n1/n2
