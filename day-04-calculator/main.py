@@ -29,3 +29,12 @@ def get_number(prompt):
             return float(input(prompt))
         except ValueError:
             print("Invalid input. Please enter a valid number.")
+            
+def get_operation():
+    """Get a valid operation from the user"""
+    while True:
+        op = input("Choose an operation (+, -, *, /)").strip()
+        if op in ['+', '-', '*', '/']:
+            return op
+        else:
+            print("Invalid operation. Please choose from (+, -, *, /).")
