@@ -21,3 +21,11 @@ def divide(n1, n2):
     if n2 == 0:
         return "Error: Division by zero is not allowed."
     return n1/n2
+
+def get_number(prompt):
+    """Gets valid input from the user."""
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
