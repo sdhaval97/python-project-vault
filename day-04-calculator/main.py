@@ -46,9 +46,9 @@ def main():
         print("🧮 Simple Python Calculator 🧮")
         print("="*30)
         
-        num1 = get_number("Enter the first number")
+        num1 = get_number("Enter the first number: ")
         op = get_operation()
-        num2 = get_number("Enter the second number")
+        num2 = get_number("Enter the second number: ")
         
         result = None
         if op == "+":
