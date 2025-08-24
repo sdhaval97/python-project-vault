@@ -38,3 +38,47 @@ def get_operation():
             return op
         else:
             print("Invalid operation. Please choose from (+, -, *, /).")
+
+def main():
+    """Main application controller for the calculator"""
+    while True:
+        clear_screen()
+        print("🧮 Simple Python Calculator 🧮")
+        print("="*30)
+        
+        num1 = get_number("Enter the first number")
+        op = get_operation()
+        num2 = get_number("Enter the second number")
+        
+        result = None
+        if op == "+":
+            result = add(num1, num2)
+        elif op == "-":
+            result = subtract(num1, num2)
+        elif op == "*":
+            result = multiply(num1, num2)
+        elif op == "/":
+            result = divide(num1, num2)
+            
+        print("\n" + "-"*30)
+        
+        # Check if result is a string (zerodivision error)
+        if isinstance(result, str):
+            print(f"Result: {result}")
+        else:
+            print(f"{num1} {op} {num2} = {result}")
+        print("-"*30)
+        
+        while True:
+            again = input("\nPerform another calculation? (y/n): ").lower().strip()
+            if again in ['y', 'yes', 'n', 'no']:
+                break
+            else:
+                print("Invalid input. Please enter 'y' or 'n'.")
+        
+        if again in ['n', 'no']:
+            print("\nThanks for using the calculator! 👋")
+            break
+
+if __name__ == "__main__":
+    main()
