@@ -24,4 +24,32 @@ def run_quiz(questions):
     score = 0
     total_questions = len(questions)
     
+    for index, q in enumerate(questions):
+        clear_screen()
+        print(f"❓ Question {index + 1}/{total_questions}")
+        print("="*30)
+        print(q["question"])
+        print("-" * 30)
+        
+        for option in q["options"]:
+            print(option)
+        
+        while True:
+            user_answer = input("\nEnter your choice (A, B, C, or D): ").upper().strip()
+            if user_answer in ['A', 'B', 'C', 'D']:
+                break
+            else:
+                print("Invalid input. Please enter A, B, C, or D.")
+        
+        correct_answer = q["answer"]
+        if user_answer == correct_answer:
+            print("\n✅ Correct! Great job.")
+            score += 1
+        else:
+            print(f"\n❌ Incorrect. The correct answer was {correct_answer}.")
+        
+        time.sleep(2) # Pause for 2 seconds to let the user see the feedback
+        
+        return score, total_questions
+    
     
