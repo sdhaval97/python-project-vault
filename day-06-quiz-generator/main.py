@@ -50,6 +50,9 @@ def run_quiz(questions):
         
         time.sleep(2) # Pause for 2 seconds to let the user see the feedback
         
-        return score, total_questions
+    return score, total_questions
+
+def display_final_score(score, total):
+    pass
     
     
