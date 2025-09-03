@@ -53,6 +53,34 @@ def run_quiz(questions):
     return score, total_questions
 
 def display_final_score(score, total):
-    pass
+    """Displays the final score and message"""
+    clear_screen()
+    clear_screen()
+    print("🎉 Quiz Complete! 🎉")
+    print("="*30)
+    print(f"Your final score is: {score}/{total}")
+    
+    percentage = (score / total) * 100
+    print(f"You answered {percentage:.2f}% of the questions correctly.")
+    
+    if percentage == 100:
+        print("\n🏆 Perfect score! You're a genius!")
+    elif percentage >= 75:
+        print("\n👍 Excellent work!")
+    elif percentage >= 50:
+        print("\n🙂 Good effort, keep practicing!")
+    else:
+        print("\nDon't worry, try again to improve your score!")
+
+def main():
+    """Main application controller"""
+    questions = load_questions()
+    
+    if questions:
+        score, total = run_quiz(questions)
+        display_final_score(score, total)
+
+if __name__ == "__main__":
+    main()
     
     
