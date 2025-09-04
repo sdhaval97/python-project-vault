@@ -115,4 +115,4 @@ The challenge aims to:
 
 - **Start Date**: 17th Aug
 - **Projects Completed**: 6/60
-- **Current Focus**: Foundation building
+- **Current Focus**: Building a strong foundation
