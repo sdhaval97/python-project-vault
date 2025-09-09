@@ -18,4 +18,6 @@ def load_tasks():
     except Exception as e:
         print("An error occured while loading tasks: {e}")
         return []
-    
+
+def save_tasks(tasks):
+    pass
