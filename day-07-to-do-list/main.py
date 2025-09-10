@@ -20,4 +20,19 @@ def load_tasks():
         return []
 
 def save_tasks(tasks):
-    pass
+    """Saves the current list of tasks to the file."""
+    try:
+        with open(TASKS_FILE, 'w', encoding = 'utf-8') as f:
+            for task in tasks:
+                f.write(task + "\n")
+    except Exception as e:
+        print(f"An error occured while saving tasks: {e}")
+
+def view_tasks(tasks):
+    """Displays all the tasks."""
+    clear_screen()
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print("📝      YOUR TASKS      📝")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    if not tasks:
+        
