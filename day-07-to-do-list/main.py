@@ -35,4 +35,9 @@ def view_tasks(tasks):
     print("📝      YOUR TASKS      📝")
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~")
     if not tasks:
-        
+        print("\nYour to-do list is empty. Use '2' to add a task!")
+    else:
+        for i, task in enumerate(tasks, 1):
+            print(f"  {i}. {task}")
+    print("\n" + "~"*26)
+    input("\nPress Enter to return to the menu...")
