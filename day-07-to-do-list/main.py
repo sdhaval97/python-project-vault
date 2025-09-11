@@ -41,3 +41,19 @@ def view_tasks(tasks):
             print(f"  {i}. {task}")
     print("\n" + "~"*26)
     input("\nPress Enter to return to the menu...")
+    
+def add_task(tasks):
+    """Adds a new task to the list"""
+    clear_screen()
+    print("--- Add a New Task ---")
+    new_task = input("Enter the task description: ").strip()
+    
+    if new_task:
+        tasks.append(new_task)
+        save_tasks(tasks)
+        print(f"\n✅ Task '{new_task}' added!")
+    else:
+        print("\n❌ Task cannot be empty.")
+    
+    time.sleep(1.5)
+    
