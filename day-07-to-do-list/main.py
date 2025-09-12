@@ -56,4 +56,7 @@ def add_task(tasks):
         print("\n❌ Task cannot be empty.")
     
     time.sleep(1.5)
-    
+
+def delete_task(tasks):
+    """Deletes task from the list."""
+    pass
