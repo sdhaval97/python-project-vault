@@ -59,4 +59,65 @@ def add_task(tasks):
 
 def delete_task(tasks):
     """Deletes task from the list."""
-    pass
+    clear_screen()
+    print("--- Delete a Task ---")
+    
+    if not tasks:
+        print("Your to-do list is empty. Nothing to delete.")
+        time.sleep(2)
+        return
+    
+    for i, task in enumerate(tasks, 1):
+        print(f"{i}. {task}")
+    print("-----------------------")
+    
+    try:
+        task_num_str = input("Enter the number of the task to delete (or 0 to cancel): ").strip()
+        task_num = int(task_num_str)
+        
+        if task_num == 0:
+            print("\nOperation cancelled.")
+        elif 1 <= task_num <= len(tasks):
+            removed_task = tasks.pop(task_num - 1) # Adjust for 0-based index
+            save_tasks(tasks)
+            print(f"\n🗑️ Task '{removed_task}' has been deleted.")
+        else:
+            print("\n❌ Invalid task number.")
+    except ValueError:
+        print("\n❌ Invalid input. Please enter a number.")
+    
+    time.sleep(2)
+
+def main():
+    """Main application controller."""
+    tasks = load_tasks()
+    
+    while True:
+        clear_screen()
+        print("==========================")
+        print("  Terminal To-Do List")
+        print("==========================")
+        print("  1. View Tasks")
+        print("  2. Add Task")
+        print("  3. Delete Task")
+        print("  4. Exit")
+        print("--------------------------")
+        
+        choice = input("Choose an option (1-4): ").strip()
+
+        if choice == '1':
+            view_tasks(tasks)
+        elif choice == '2':
+            add_task(tasks)
+        elif choice == '3':
+            delete_task(tasks)
+        elif choice == '4':
+            print("\nSaving tasks... Goodbye! 👋")
+            break
+        else:
+            print("\nInvalid choice. Please enter a number between 1 and 4.")
+            time.sleep(1)
+
+if __name__ == "__main__":
+    main()
+        
