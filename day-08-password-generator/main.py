@@ -25,4 +25,8 @@ def get_password_specs():
                 print("❌ Invalid length. Please enter a number between 8 and 64.")
         except ValueError:
             print("❌ Invalid input. Please enter a valid number.")
+            
+    include_upper = input("Include uppercase letters? (y/n): ").lower().strip() == 'y'
+    include_numbers = input("Include numbers? (y/n): ").lower().strip() == 'y'
+    include_symbols = input("Include symbols? (y/n): ").lower().strip() == 'y'
                 
