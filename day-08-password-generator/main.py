@@ -29,4 +29,7 @@ def get_password_specs():
     include_upper = input("Include uppercase letters? (y/n): ").lower().strip() == 'y'
     include_numbers = input("Include numbers? (y/n): ").lower().strip() == 'y'
     include_symbols = input("Include symbols? (y/n): ").lower().strip() == 'y'
+    
+    return length, include_upper, include_numbers, include_symbols
+
                 
