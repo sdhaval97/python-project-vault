@@ -32,4 +32,8 @@ def get_password_specs():
     
     return length, include_upper, include_numbers, include_symbols
 
+def generate_password(length, use_upper, use_numbers, use_symbols):
+    """Generates a password based on the specific criteria"""
+    pass
+
                 
