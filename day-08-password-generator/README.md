@@ -1,4 +1,4 @@
-# Project 11: Password Generator
+# Project 8: Password Generator
 
 ## Project Overview
 A command-line tool that generates strong, random passwords based on user-specified criteria. This project emphasizes cybersecurity principles by using Python's `secrets` module for cryptographically secure random number generation, which is essential for creating unpredictable and secure passwords.
