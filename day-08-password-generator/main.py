@@ -34,6 +34,43 @@ def get_password_specs():
 
 def generate_password(length, use_upper, use_numbers, use_symbols):
     """Generates a password based on the specific criteria"""
-    pass
+    character_pool = list(string.ascii_lowercase)
+    password = [secrets.choice(string.ascii_lowercase)]
+    
+    if use_upper:
+        character_pool.extend(string.ascii_uppercase)
+        password.append(secrets.choice(string.ascii_lowercase))
+    if use_numbers:
+        character_pool.extend(string.digits)
+        password.append(secrets.choice(string.digits))
+    if use_symbols:
+        character_pool.extend(string.punctuation)
+        password.append(secrets.choice(string.punctuation))
+    
+    remaining_length = length - len(password)
+    for _ in range(remaining_length):
+        password.append(secrets.choice(character_pool))
+    
+    secrets.SystemRandom().shuffle(password)
+    
+    return "".join(password)
 
+def main():
+    """Main application controller"""
+    while True:
+        length, use_upper, use_numbers, use_symbols = get_password_specs()
+        
+        password = generate_password(length, use_upper, use_numbers, use_symbols)
+        print("\n-----------------------------------")
+        print("  Generated Password:")
+        print(f"  >>> {password} <<<")
+        print("-----------------------------------")
+        
+        again = input("\nGenerate another password? (y/n): ").lower().strip()
+        if again != 'y':
+            print("\nStay secure! Goodbye! 👋")
+            break
+        
+if __name__ == "__main__":
+    main()
                 
